@@ -6,6 +6,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.cancelChildren
+import mithril.hackathon.chasingcoin.data.DataInteractor
 import kotlin.coroutines.CoroutineContext
 
 /**
@@ -15,6 +16,8 @@ import kotlin.coroutines.CoroutineContext
 abstract class BasePresenter<V : BaseView> : IBasePresenter<V>, CoroutineScope {
 
     private val job = SupervisorJob()
+
+    open var dataInteractor: DataInteractor? = null
 
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.Main + job

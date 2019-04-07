@@ -10,4 +10,16 @@ class Constants {
             const val SPFS_NAME = "ChasingCoinPref"
         }
     }
+
+    class BundleName{
+        companion object {
+            const val STARVA_CODE = "code"
+        }
+    }
+
+    class Request{
+        companion object {
+            const val REQ_LOGIN = 0
+        }
+    }
 }

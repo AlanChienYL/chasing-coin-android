@@ -1,6 +1,5 @@
 package mithril.hackathon.chasingcoin.ui.main
 
-import android.net.Uri
 import mithril.hackathon.chasingcoin.ui.base.BaseView
 import mithril.hackathon.chasingcoin.ui.base.IErrorView
 
@@ -9,10 +8,12 @@ import mithril.hackathon.chasingcoin.ui.base.IErrorView
  */
 class MainContract {
     interface View : BaseView, IErrorView {
-        fun startStravaLogin(intentUri: Uri)
+        fun navigateToLogin()
+
+        fun setCode(code: String)
     }
 
     interface Presenter {
-
+        fun loginSuccess()
     }
 }

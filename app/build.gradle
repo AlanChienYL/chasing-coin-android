@@ -22,6 +22,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    flavorDimensions "version"
+    productFlavors {
+        production {
+            dimension "version"
+            buildConfigField "String", "CLIENT_ID", "\"${loadSecret("client_id")}\""
+            buildConfigField "String", "CLIENT_SECRET", "\"${loadSecret("client_secret")}\""
+        }
+        stagin {
+            dimension "version"
+            applicationIdSuffix ".stagin"
+            versionNameSuffix "-stagin"
+            buildConfigField "String", "CLIENT_ID", "\"${loadSecret("client_id")}\""
+            buildConfigField "String", "CLIENT_SECRET", "\"${loadSecret("client_secret")}\""
+
+        }
+    }
 }
 
 dependencies {
@@ -61,4 +78,8 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+}
+
+def loadSecret(String name) {
+    return hasProperty(name) ? getProperty(name) : "MISSING"
 }

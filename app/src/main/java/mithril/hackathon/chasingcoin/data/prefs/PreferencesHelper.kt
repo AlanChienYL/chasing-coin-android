@@ -34,11 +34,11 @@ class PreferencesHelper(
             INSTANCE = null
         }
 
-        private const val STARVA_CODE = "mithril.hackathon.chasingcoin.prefs.code"
+        private const val STARVA_TOKEN = "mithril.hackathon.chasingcoin.prefs.token"
     }
 
-    var code: String?
-        get() = prefs.getString(STARVA_CODE, null)
-        set(value) = prefs.edit().putString(STARVA_CODE, value).apply()
+    var token: String?
+        get() = prefs.getString(STARVA_TOKEN, null)
+        set(value) = prefs.edit().putString(STARVA_TOKEN, value).apply()
 
 }

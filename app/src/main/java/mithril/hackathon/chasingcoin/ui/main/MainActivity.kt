@@ -36,8 +36,8 @@ class MainActivity : BaseActivity(), MainContract.View {
         startActivityForResult<LoginActivity>(REQ_LOGIN)
     }
 
-    override fun setCode(code: String) {
-        activity_main_tv.text = code
+    override fun setToken(token: String) {
+        activity_main_tv.text = token
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

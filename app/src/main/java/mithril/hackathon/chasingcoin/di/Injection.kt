@@ -3,6 +3,7 @@ package mithril.hackathon.chasingcoin.di
 import android.content.Context
 import mithril.hackathon.chasingcoin.data.DataInteractor
 import mithril.hackathon.chasingcoin.data.network.server.ServerApiClient
+import mithril.hackathon.chasingcoin.data.network.strava.ApiClient
 import mithril.hackathon.chasingcoin.data.prefs.PreferencesHelper
 
 /**
@@ -12,16 +13,20 @@ class Injection {
 
     companion object {
 
-        fun provideDataInteractor(apiclient: ServerApiClient, prefsHelper: PreferencesHelper): DataInteractor {
-            return DataInteractor(apiclient, prefsHelper)
+        fun provideDataInteractor(prefsHelper: PreferencesHelper): DataInteractor {
+            return DataInteractor(getRepository(), getServerRepository(), prefsHelper)
         }
 
         fun providePrefsHelper(ctx: Context, prefName: String): PreferencesHelper {
             return PreferencesHelper.getInstance(ctx, prefName)
         }
 
-        fun getRepository(): ServerApiClient {
+        fun getServerRepository(): ServerApiClient {
             return ServerApiClient.getInstance()
+        }
+
+        fun getRepository(): ApiClient {
+            return ApiClient.getInstance()
         }
     }
 }

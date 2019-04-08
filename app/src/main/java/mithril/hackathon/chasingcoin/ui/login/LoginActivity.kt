@@ -25,7 +25,6 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     override fun initializePresenter() = with(presenter) {
         setView(this@LoginActivity)
         dataInteractor = Injection.provideDataInteractor(
-            Injection.getRepository(),
             Injection.providePrefsHelper(this@LoginActivity, Constants.SharePreferences.SPFS_NAME)
         )
         initialize(intent.extras, this@LoginActivity.lifecycle)

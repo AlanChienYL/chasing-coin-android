@@ -2,9 +2,7 @@ package mithril.hackathon.chasingcoin.data.network.interactor
 
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
-import mithril.hackathon.chasingcoin.BuildConfig
 import mithril.hackathon.chasingcoin.data.DataInteractor
-import mithril.hackathon.chasingcoin.data.network.server.request.TokenExchangeReq
 import mithril.hackathon.chasingcoin.data.network.server.response.BaseResp
 import mithril.hackathon.chasingcoin.data.network.server.response.TokenExchangeResp
 import retrofit2.Response
@@ -22,11 +20,7 @@ class TokenExchangeInteractor(
 
     fun request(code: String): Job = launch {
         try {
-            val request = TokenExchangeReq(
-                BuildConfig.CLIENT_ID,
-                BuildConfig.CLIENT_SECRET, code
-            )
-            val resp = di.apiService.tokenExchange(request).await()
+            val resp = di.serverApiService.tokenExchange(code).await()
             parser(resp)
         } catch (t: Throwable) {
             throwableHandler(t, failureHandler)
@@ -36,14 +30,7 @@ class TokenExchangeInteractor(
     private fun parser(resp: Response<TokenExchangeResp>) {
         when {
             resp.isSuccessful -> {
-                resp.body()?.let {
-                    when {
-                        it.accessToken.isNullOrEmpty() -> failureHandler(BaseResp(it.error))
-                        else -> {
-                            successHandler(it)
-                        }
-                    }
-                }
+                resp.body()?.let { successHandler(it) }
                 resp.body() ?: getServerResponseFailed(failureHandler)
             }
             !resp.isSuccessful -> resp.errorBody()?.let {

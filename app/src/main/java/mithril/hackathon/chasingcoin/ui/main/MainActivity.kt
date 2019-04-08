@@ -22,7 +22,6 @@ class MainActivity : BaseActivity(), MainContract.View {
     override fun initializePresenter() = with(presenter) {
         setView(this@MainActivity)
         dataInteractor = Injection.provideDataInteractor(
-            Injection.getRepository(),
             Injection.providePrefsHelper(this@MainActivity, Constants.SharePreferences.SPFS_NAME)
         )
         initialize(intent.extras, this@MainActivity.lifecycle)

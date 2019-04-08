@@ -55,9 +55,9 @@ class LoginPresenter<V : LoginContract.View> : BasePresenter<V>(), LoginContract
 
     private fun apiSuccess(resp: TokenExchangeResp) {
         getView()?.hideProgress()
-        dataInteractor?.prefsHelper?.token = resp.accessToken
+        dataInteractor?.prefsHelper?.token = resp.chasingToken
         getView()?.loginSuccess()
-        Timber.d("access token : ${resp.accessToken}")
+        Timber.d("access token : ${resp.chasingToken}")
     }
 
     private fun apiFailed(resp: BaseResp?) {

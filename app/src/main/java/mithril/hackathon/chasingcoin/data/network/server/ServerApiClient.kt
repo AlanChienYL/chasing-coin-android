@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
  */
 class ServerApiClient {
 
-    fun getService(): IApiService_authServer = provideRetrofit().create(IApiService_authServer::class.java)
+    fun getService(): IApiService = provideRetrofit().create(IApiService::class.java)
 
     companion object {
         private var INSTANCE: ServerApiClient? = null

@@ -6,7 +6,7 @@ import androidx.lifecycle.OnLifecycleEvent
 import com.google.gson.Gson
 import kotlinx.coroutines.*
 import mithril.hackathon.chasingcoin.data.DataInteractor
-import mithril.hackathon.chasingcoin.data.network.strava.response.BaseResp
+import mithril.hackathon.chasingcoin.data.network.server.response.BaseResp
 import okhttp3.ResponseBody
 import timber.log.Timber
 import java.net.UnknownHostException

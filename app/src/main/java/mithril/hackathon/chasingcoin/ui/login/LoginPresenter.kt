@@ -3,8 +3,8 @@ package mithril.hackathon.chasingcoin.ui.login
 import android.net.Uri
 import mithril.hackathon.chasingcoin.BuildConfig
 import mithril.hackathon.chasingcoin.data.network.interactor.TokenExchangeInteractor
-import mithril.hackathon.chasingcoin.data.network.strava.response.BaseResp
-import mithril.hackathon.chasingcoin.data.network.strava.response.TokenExchangeResp
+import mithril.hackathon.chasingcoin.data.network.server.response.BaseResp
+import mithril.hackathon.chasingcoin.data.network.server.response.TokenExchangeResp
 import mithril.hackathon.chasingcoin.ui.base.BasePresenter
 import timber.log.Timber
 

@@ -4,9 +4,9 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import mithril.hackathon.chasingcoin.BuildConfig
 import mithril.hackathon.chasingcoin.data.DataInteractor
-import mithril.hackathon.chasingcoin.data.network.strava.request.TokenExchangeReq
-import mithril.hackathon.chasingcoin.data.network.strava.response.BaseResp
-import mithril.hackathon.chasingcoin.data.network.strava.response.TokenExchangeResp
+import mithril.hackathon.chasingcoin.data.network.server.request.TokenExchangeReq
+import mithril.hackathon.chasingcoin.data.network.server.response.BaseResp
+import mithril.hackathon.chasingcoin.data.network.server.response.TokenExchangeResp
 import retrofit2.Response
 
 /**

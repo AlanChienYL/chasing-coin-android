@@ -7,6 +7,7 @@ import com.google.gson.Gson
 import kotlinx.coroutines.*
 import mithril.hackathon.chasingcoin.data.DataInteractor
 import mithril.hackathon.chasingcoin.data.network.server.response.BaseResp
+import mithril.hackathon.chasingcoin.data.network.strava.response.stravaBaseResp
 import okhttp3.ResponseBody
 import timber.log.Timber
 import java.net.UnknownHostException
@@ -53,4 +54,28 @@ abstract class BaseInteractor(val di: DataInteractor) : LifecycleObserver, Corou
             }
         failureHandler(baseResp)
     }
+
+    fun getStravaErrResp(errBody: ResponseBody) = let {
+        try {
+            getErrParser(errBody.string(), stravaBaseResp::class.java)
+        } catch (e: Throwable) {
+            stravaBaseResp(e.localizedMessage)
+        }
+    }
+
+    fun getStravaServerResponseFailed(failureHandler: (stravaBaseResp?) -> Unit) {
+        failureHandler(stravaBaseResp("no strava resp from server"))
+    }
+
+    fun throwableStravaHandler(t: Throwable, failureHandler: (stravaBaseResp?) -> Unit): Job = launch {
+        Timber.d("in strava throwableHandler err : ${t.message}")
+        val stravaBaseResp =
+            when (t) {
+                is UnknownHostException -> stravaBaseResp(t.localizedMessage)
+                else -> stravaBaseResp(t.localizedMessage)
+            }
+        failureHandler(stravaBaseResp)
+    }
+
+
 }

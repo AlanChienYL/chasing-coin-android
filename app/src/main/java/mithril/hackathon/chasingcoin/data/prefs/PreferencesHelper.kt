@@ -35,10 +35,15 @@ class PreferencesHelper(
         }
 
         private const val STARVA_TOKEN = "mithril.hackathon.chasingcoin.prefs.token"
+        private const val STARVA_UID = "mithril.hackathon.chasingcoin.prefs.uid"
     }
 
     var token: String?
         get() = prefs.getString(STARVA_TOKEN, null)
         set(value) = prefs.edit().putString(STARVA_TOKEN, value).apply()
+
+    var uid: Long
+        get() = prefs.getLong(STARVA_UID, 0)
+        set(value) = prefs.edit().putLong(STARVA_UID, value).apply()
 
 }

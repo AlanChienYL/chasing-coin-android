@@ -21,6 +21,7 @@ data class TokenExchangeResp(
     )
 
     data class Strava(
+        @SerializedName("uid") val uid: Long,
         @SerializedName("access_token") val accessToken: String?,
         @SerializedName("refresh_token") val refreshToken: String?,
         @SerializedName("expires_at") val expireAt: Long?,

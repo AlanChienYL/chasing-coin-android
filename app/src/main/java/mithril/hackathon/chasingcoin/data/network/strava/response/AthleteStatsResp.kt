@@ -3,7 +3,7 @@ package mithril.hackathon.chasingcoin.data.network.strava.response
 import com.google.gson.annotations.SerializedName
 import java.util.*
 
-data class GetRunningRacesResp(
+data class AthleteStatsResp(
     @SerializedName("country") val country: String,
     @SerializedName("running_race_type") val runningRaceType: Int,
     @SerializedName("route_ids") val routeIds: IntArray,

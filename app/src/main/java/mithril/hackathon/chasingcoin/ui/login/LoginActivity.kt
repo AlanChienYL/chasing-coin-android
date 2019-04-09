@@ -9,7 +9,11 @@ import kotlinx.android.synthetic.main.activity_login.*
 import mithril.hackathon.chasingcoin.R
 import mithril.hackathon.chasingcoin.di.Injection
 import mithril.hackathon.chasingcoin.ui.base.BaseActivity
+import mithril.hackathon.chasingcoin.ui.home.HomeActivity
 import mithril.hackathon.chasingcoin.utils.Constants
+import org.jetbrains.anko.clearTask
+import org.jetbrains.anko.intentFor
+import org.jetbrains.anko.newTask
 
 /**
  * Created by AlanChien on 07,April,2019.
@@ -25,7 +29,7 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     override fun initializePresenter() = with(presenter) {
         setView(this@LoginActivity)
         dataInteractor = Injection.provideDataInteractor(
-            Injection.providePrefsHelper(this@LoginActivity, Constants.SharePreferences.SPFS_NAME)
+                Injection.providePrefsHelper(this@LoginActivity, Constants.SharePreferences.SPFS_NAME)
         )
         initialize(intent.extras, this@LoginActivity.lifecycle)
     }
@@ -66,7 +70,6 @@ class LoginActivity : BaseActivity(), LoginContract.View {
     }
 
     override fun loginSuccess() {
-        setResult(RESULT_OK)
-        finish()
+        startActivity(intentFor<HomeActivity>().clearTask().newTask())
     }
 }

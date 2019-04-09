@@ -10,10 +10,14 @@ class MainContract {
     interface View : BaseView, IErrorView {
         fun navigateToLogin()
 
+        fun navigateToHome()
+
         fun setToken(token: String)
     }
 
     interface Presenter {
         fun loginSuccess()
+
+        fun clickToLogin()
     }
 }

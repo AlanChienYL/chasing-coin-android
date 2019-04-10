@@ -20,13 +20,13 @@ class LoginPresenter<V : LoginContract.View> : BasePresenter<V>(), LoginContract
     override fun create() {
         getView()?.setupWebView()
         val intentUri = Uri.parse("https://www.strava.com/oauth/mobile/authorize")
-                .buildUpon()
-                .appendQueryParameter("client_id", BuildConfig.CLIENT_ID)
-                .appendQueryParameter("redirect_uri", "https://127.0.0.1/chasing/")
-                .appendQueryParameter("response_type", "code")
-                .appendQueryParameter("approval_prompt", "auto")
-                .appendQueryParameter("scope", "profile:read_all,activity:read")
-                .build()
+            .buildUpon()
+            .appendQueryParameter("client_id", BuildConfig.CLIENT_ID)
+            .appendQueryParameter("redirect_uri", "https://127.0.0.1/chasing/")
+            .appendQueryParameter("response_type", "code")
+            .appendQueryParameter("approval_prompt", "auto")
+            .appendQueryParameter("scope", "profile:read_all,activity:read")
+            .build()
         Timber.d("auth url : $intentUri")
         getView()?.loadLoginUrl(intentUri.toString())
     }
@@ -55,7 +55,8 @@ class LoginPresenter<V : LoginContract.View> : BasePresenter<V>(), LoginContract
 
     private fun apiSuccess(resp: TokenExchangeResp) {
         getView()?.hideProgress()
-        dataInteractor?.prefsHelper?.token = resp.chasingToken
+        dataInteractor?.prefsHelper?.chasingToken = resp.chasingToken
+        dataInteractor?.prefsHelper?.stravaToken = resp.chasingUser.strava.accessToken
         dataInteractor?.prefsHelper?.uid = resp.chasingUser.strava.uid
 
         getView()?.loginSuccess()

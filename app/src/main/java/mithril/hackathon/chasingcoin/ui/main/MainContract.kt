@@ -16,8 +16,6 @@ class MainContract {
     }
 
     interface Presenter {
-        fun loginSuccess()
-
         fun clickToLogin()
     }
 }

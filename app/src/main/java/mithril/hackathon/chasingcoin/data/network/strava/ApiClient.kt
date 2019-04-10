@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit
  */
 class ApiClient {
 
-    fun getService(): IApiService = provideRetrofit().create(IApiService::class.java)
+    fun getService(token:String?): IApiService = provideRetrofit(token).create(IApiService::class.java)
 
     companion object {
         private var INSTANCE: ApiClient? = null
@@ -40,12 +40,11 @@ class ApiClient {
         const val TIMEOUT_READ: Long = 15
     }
 
-
-    private fun provideRetrofit() = Retrofit.Builder().apply {
+    private fun provideRetrofit(token: String?) = Retrofit.Builder().apply {
         addCallAdapterFactory(CoroutineCallAdapterFactory())
         addConverterFactory(GsonConverterFactory.create())
         baseUrl(BASE_URL)
-        client(getOkHttpBuilder().build())
+        client(getOkHttpBuilder().apply { addInterceptor(TokenInterceptor(token)) }.build())
     }.build()
 
     private fun getOkHttpBuilder(): OkHttpClient.Builder {

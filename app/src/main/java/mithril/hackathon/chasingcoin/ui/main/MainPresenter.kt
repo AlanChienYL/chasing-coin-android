@@ -9,15 +9,9 @@ class MainPresenter<V : MainContract.View> : BasePresenter<V>(), MainContract.Pr
 
 
     override fun create() {
-        val token = dataInteractor?.prefsHelper?.token
+        val token = dataInteractor?.prefsHelper?.chasingToken
         when (token.isNullOrEmpty()) {
             false -> getView()?.navigateToHome()
-        }
-    }
-
-    override fun loginSuccess() {
-        dataInteractor?.prefsHelper?.token?.let { token ->
-            getView()?.setToken(token)
         }
     }
 

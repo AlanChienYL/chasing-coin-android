@@ -12,6 +12,6 @@ class DataInteractor(
     val serverApiClient: ServerApiClient,
     val prefsHelper: PreferencesHelper
 ) {
-    val apiService by lazy { apiClient.getService() }
+    val apiService by lazy { apiClient.getService(prefsHelper.stravaToken) }
     val serverApiService by lazy { serverApiClient.getService() }
 }

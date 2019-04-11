@@ -35,7 +35,7 @@ class ServerApiClient {
             INSTANCE = null
         }
 
-        const val COIN_SERVER_BASE_URL = "https://us-central1-chasing-coin.cloudfunctions.net/strava/"
+        const val COIN_SERVER_BASE_URL = "https://us-central1-chasing-coin.cloudfunctions.net/"
         const val TIMEOUT_CONNECTION: Long = 3
         const val TIMEOUT_READ: Long = 15
     }

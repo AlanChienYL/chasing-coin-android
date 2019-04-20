@@ -8,8 +8,15 @@ import mithril.hackathon.chasingcoin.ui.base.IErrorView
  */
 class MainContract {
     interface View : BaseView, IErrorView {
+        fun setYearKm(km: String)
 
+        fun set4WeekKm(km: String)
+
+        fun setTotalKMNow(km:String)
     }
 
-    interface Presenter {}
+    interface Presenter {
+
+        fun onViewCreated()
+    }
 }

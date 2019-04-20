@@ -16,7 +16,6 @@ class LoginPresenter<V : LoginContract.View> : BasePresenter<V>(), LoginContract
         TokenExchangeInteractor(dataInteractor!!, ::apiSuccess, ::apiFailed)
     }
 
-
     override fun create() {
         getView()?.setupWebView()
         val intentUri = Uri.parse("https://www.strava.com/oauth/mobile/authorize")
@@ -54,12 +53,14 @@ class LoginPresenter<V : LoginContract.View> : BasePresenter<V>(), LoginContract
 
 
     private fun apiSuccess(resp: TokenExchangeResp) {
-        getView()?.hideProgress()
         dataInteractor?.prefsHelper?.chasingToken = resp.chasingToken
         dataInteractor?.prefsHelper?.stravaToken = resp.chasingUser.strava.accessToken
-        dataInteractor?.prefsHelper?.uid = resp.chasingUser.strava.uid
+        dataInteractor?.prefsHelper?.chaserUid = resp.chasingUser.uid
+        dataInteractor?.prefsHelper?.stravaUid = resp.chasingUser.strava.uid
+        dataInteractor?.prefsHelper?.refreshToken = resp.chasingUser.strava.refreshToken
 
         getView()?.loginSuccess()
+        getView()?.hideProgress()
         Timber.d("access token : ${resp.chasingToken}, uid ${resp.chasingUser.strava.uid}")
     }
 

@@ -1,18 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:id="@+id/main_view"
-    android:layout_height="match_parent">
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   android:layout_width="match_parent"
+                                                   android:id="@+id/main_view"
+                                                   android:layout_height="match_parent">
 
     <TextView
+            android:id="@+id/fragment_main_strava_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:text="@string/main_fragment_strava_activity"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Main"
-        android:textSize="35sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+            android:id="@+id/fragment_main_strava_recent_year"
+            android:layout_width="0dp"
+            android:gravity="start|center"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_main_strava_title"/>
+
+    <TextView
+            android:id="@+id/fragment_main_strava_recent_week"
+            android:layout_width="0dp"
+            android:gravity="start|center"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_main_strava_recent_year"/>
+
+    <TextView
+            android:id="@+id/fragment_main_mining_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black"
+            android:text="@string/main_fragment_mining_every_day"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_main_strava_recent_week"/>
+
+    <TextView
+            android:id="@+id/fragment_main_mining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_main_mining_title"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

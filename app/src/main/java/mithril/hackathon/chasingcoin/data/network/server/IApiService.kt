@@ -3,6 +3,8 @@ package mithril.hackathon.chasingcoin.data.network.server
 import kotlinx.coroutines.Deferred
 import mithril.hackathon.chasingcoin.data.network.server.request.ChaserIdReq
 import mithril.hackathon.chasingcoin.data.network.server.request.TokenRefreshReq
+import mithril.hackathon.chasingcoin.data.network.server.response.MiningResp
+import mithril.hackathon.chasingcoin.data.network.server.response.StatsResp
 import mithril.hackathon.chasingcoin.data.network.server.response.TokenExchangeResp
 import retrofit2.Response
 import retrofit2.http.Body
@@ -54,16 +56,10 @@ interface IApiService {
     @GET("/mith_oauth/balance")
     fun mithAuthAppBalance(@Query("code") code: String): Deferred<Response<TokenRefreshReq>>
 
-    /**
-     * 取得 mith's userInfo
-     */
-    @POST("/mith_oauth/user-info")
-    fun mithAuthUserInfo(@Body request: TokenRefreshReq): Deferred<Response<TokenRefreshReq>>
+    @POST("mith_mining")
+    fun mithMining(@Body request: ChaserIdReq): Deferred<Response<MiningResp>>
 
-
-
-
-
-
+    @POST("chaser/marathon/stats")
+    fun getStats(@Body request: ChaserIdReq): Deferred<Response<StatsResp>>
 
 }

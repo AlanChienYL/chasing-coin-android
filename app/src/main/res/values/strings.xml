@@ -4,4 +4,9 @@
     <string name="activity_home_tab_main">Main</string>
     <string name="activity_home_tab_news">News</string>
     <string name="activity_home_tab_member">Member</string>
+    <string name="main_fragment_strava_activity">Strava 活動</string>
+    <string name="main_fragment_strava_recent_year">近一年跑了 %1$s 公里</string>
+    <string name="main_fragment_strava_recent_week">近四周跑了 %1$s 公里</string>
+    <string name="main_fragment_mining_every_day">天天跑挖礦</string>
+    <string name="main_fragment_mining_current">目前合計跑步距離為 %1$s KM</string>
 </resources>

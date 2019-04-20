@@ -36,19 +36,29 @@ class PreferencesHelper(
 
         private const val STARVA_TOKEN = "mithril.hackathon.chasingcoin.prefs.stravaToken"
         private const val CHASING_TOKEN = "mithril.hackathon.chasingcoin.prefs.chasingToken"
+        private const val REFRESH_TOKEN = "mithril.hackathon.chasingcoin.prefs.refreshToken"
         private const val STARVA_UID = "mithril.hackathon.chasingcoin.prefs.uid"
+        private const val CHASER_UID = "mithril.hackathon.chasingcoin.prefs.chaserUid"
     }
 
     var chasingToken: String?
         get() = prefs.getString(CHASING_TOKEN, null)
         set(value) = prefs.edit().putString(CHASING_TOKEN, value).apply()
 
+    var refreshToken: String?
+        get() = prefs.getString(REFRESH_TOKEN, null)
+        set(value) = prefs.edit().putString(REFRESH_TOKEN, value).apply()
+
     var stravaToken: String?
         get() = prefs.getString(STARVA_TOKEN, null)
         set(value) = prefs.edit().putString(STARVA_TOKEN, value).apply()
 
-    var uid: Long
+    var stravaUid: Long
         get() = prefs.getLong(STARVA_UID, 0)
         set(value) = prefs.edit().putLong(STARVA_UID, value).apply()
+
+    var chaserUid: String?
+        get() = prefs.getString(CHASER_UID, null)
+        set(value) = prefs.edit().putString(CHASER_UID, value).apply()
 
 }

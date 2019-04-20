@@ -1,5 +1,7 @@
 package mithril.hackathon.chasingcoin.ui.home.main
 
+import android.os.Bundle
+import android.view.View
 import kotlinx.android.synthetic.main.fragment_main.*
 import mithril.hackathon.chasingcoin.R
 import mithril.hackathon.chasingcoin.di.Injection
@@ -12,16 +14,21 @@ import org.jetbrains.anko.design.longSnackbar
  */
 class MainFragment : BaseFragment(), MainContract.View {
 
+
     val presenter: MainPresenter<MainContract.View> by lazy { MainPresenter<MainContract.View>() }
     override fun initializePresenter() = with(presenter) {
         setView(this@MainFragment)
         lifecycle = this@MainFragment.lifecycle
         dataInteractor = Injection.provideDataInteractor(
-                Injection.providePrefsHelper(
-                        activity!!, Constants.SharePreferences.SPFS_NAME
-                )
+            Injection.providePrefsHelper(
+                activity!!, Constants.SharePreferences.SPFS_NAME
+            )
         )
-        this@MainFragment.lifecycle.addObserver(this)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        presenter.onViewCreated()
     }
 
 
@@ -29,5 +36,17 @@ class MainFragment : BaseFragment(), MainContract.View {
 
     override fun showError(errMsg: String) {
         main_view.longSnackbar(errMsg)
+    }
+
+    override fun setYearKm(km: String) {
+        fragment_main_strava_recent_year.text = getString(R.string.main_fragment_strava_recent_year, km)
+    }
+
+    override fun set4WeekKm(km: String) {
+        fragment_main_strava_recent_week.text = getString(R.string.main_fragment_strava_recent_week, km)
+    }
+
+    override fun setTotalKMNow(km: String) {
+        fragment_main_mining.text = getString(R.string.main_fragment_mining_current, km)
     }
 }

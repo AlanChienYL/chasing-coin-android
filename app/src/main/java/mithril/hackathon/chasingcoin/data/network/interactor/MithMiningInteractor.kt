@@ -3,40 +3,40 @@ package mithril.hackathon.chasingcoin.data.network.interactor
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 import mithril.hackathon.chasingcoin.data.DataInteractor
+import mithril.hackathon.chasingcoin.data.network.server.request.ChaserIdReq
 import mithril.hackathon.chasingcoin.data.network.server.response.BaseResp
-import mithril.hackathon.chasingcoin.data.network.strava.response.AthleteStatsResp
+import mithril.hackathon.chasingcoin.data.network.server.response.MiningResp
 import retrofit2.Response
 
 /**
- * Created by AlanChien on 20,March,2019.
+ * Created by AlanChien on 19,April,2019.
  */
-
-class AthleteStatsInteractor(
+class MithMiningInteractor(
     di: DataInteractor,
-    val successHandler: (AthleteStatsResp) -> Unit,
+    val successHandler: (MiningResp) -> Unit,
     val failureHandler: (BaseResp?) -> Unit
 ) : BaseInteractor(di) {
 
 
-    fun getStats(uid: Long): Job = launch {
+    fun request(): Job = launch {
         try {
-            val resp = di.apiService.aithetesStats(uid).await()
+
+            val request = ChaserIdReq(di.prefsHelper.chaserUid!!)
+            val resp = di.serverApiService.mithMining(request).await()
             parser(resp)
         } catch (t: Throwable) {
-            throwableStravaHandler(t, failureHandler)
+            throwableHandler(t, failureHandler)
         }
     }
 
-    private fun parser(resp: Response<AthleteStatsResp>) {
+    private fun parser(resp: Response<MiningResp>) {
         when {
             resp.isSuccessful -> {
                 resp.body()?.let { successHandler(it) }
-                resp.body() ?: getStravaServerResponseFailed(failureHandler)
+                resp.body() ?: getServerResponseFailed(failureHandler)
             }
             !resp.isSuccessful -> resp.errorBody()?.let {
-                val respTmp = getErrResp(it)
-                respTmp.code = resp.code()
-                failureHandler(respTmp)
+                failureHandler(getErrResp(it))
             }
         }
     }

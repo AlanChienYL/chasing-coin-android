@@ -11,7 +11,7 @@ data class TokenExchangeResp(
     @SerializedName("token_type") val tokenType: String?,
     @SerializedName("athlete") val athlete: Athlete?
 
-){
+) {
 
     data class Athlete(
         @SerializedName("badge_type_id")

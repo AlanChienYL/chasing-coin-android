@@ -27,6 +27,7 @@ class MainActivity : BaseActivity(), MainContract.View {
                 Injection.providePrefsHelper(this@MainActivity, Constants.SharePreferences.SPFS_NAME)
         )
         initialize(intent.extras, this@MainActivity.lifecycle)
+        this@MainActivity.lifecycle.addObserver(presenter)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

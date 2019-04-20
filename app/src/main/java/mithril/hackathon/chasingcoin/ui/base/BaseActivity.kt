@@ -1,7 +1,6 @@
 package mithril.hackathon.chasingcoin.ui.base
 
 import android.os.Bundle
-import android.os.SystemClock
 import android.view.MenuItem
 import android.view.View
 import android.widget.LinearLayout
@@ -39,15 +38,10 @@ abstract class BaseActivity : AppCompatActivity(), BaseView, IErrorView, View.On
         llLoading = findViewById(R.id.llLoading)
     }
 
-    private var lastClickTime: Long = 0
 
     override fun onClick(p0: View?) {
-        SystemClock.elapsedRealtime().let {
-            if (it - lastClickTime < 1300) {
-                return
-            }
-            lastClickTime = it
-        }
+        p0?.isEnabled = false
+        p0?.postDelayed({ p0.isEnabled = true }, 350)
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {

@@ -74,6 +74,8 @@ class MainPresenter<V : MainContract.View> : BasePresenter<V>(), MainContract.Pr
     private fun apiStatsSuccess(resp: StatsResp) {
         getView()?.hideProgress()
         getView()?.setTotalKMNow(resp.stats.totalDistance.format())
+        getView()?.setRankingPer(resp.my.rank)
+        getView()?.setRemainDays(String.format("%.0f", resp.stats.countdownDay))
     }
 
     override fun onViewCreated() {

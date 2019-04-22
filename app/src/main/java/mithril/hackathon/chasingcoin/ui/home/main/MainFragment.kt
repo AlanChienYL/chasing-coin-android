@@ -49,4 +49,15 @@ class MainFragment : BaseFragment(), MainContract.View {
     override fun setTotalKMNow(km: String) {
         fragment_main_mining.text = getString(R.string.main_fragment_mining_current, km)
     }
+
+    override fun setRankingPer(rankingPer: String) {
+        fragment_main_txt_rank_per.text = getString(R.string.main_fragment_ranking_per, rankingPer)
+    }
+
+    override fun setRemainDays(remainDays: String) {
+        fragment_main_txt_remain_days.text = getString(
+            R.string.main_fragment_remain_days,
+            remainDays
+        )
+    }
 }

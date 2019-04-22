@@ -12,7 +12,11 @@ class MainContract {
 
         fun set4WeekKm(km: String)
 
-        fun setTotalKMNow(km:String)
+        fun setTotalKMNow(km: String)
+
+        fun setRankingPer(rankingPer: String)
+
+        fun setRemainDays(remainDays: String)
     }
 
     interface Presenter {

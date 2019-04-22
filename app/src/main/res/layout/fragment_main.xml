@@ -56,7 +56,7 @@
             app:layout_constraintTop_toBottomOf="@id/fragment_main_strava_recent_week"/>
 
     <TextView
-            android:id="@+id/fragment_main_mining"
+            android:id="@+id/fragment_main_txt_remain_days"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
@@ -65,5 +65,26 @@
             android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/fragment_main_mining_title"/>
+    <TextView
+            android:id="@+id/fragment_main_txt_rank_per"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_main_txt_remain_days"/>
+
+    <TextView
+            android:id="@+id/fragment_main_mining"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/fragment_main_txt_rank_per"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

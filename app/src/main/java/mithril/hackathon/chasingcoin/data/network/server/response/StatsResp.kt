@@ -21,7 +21,9 @@ data class StatsResp(
         @SerializedName("marathonId")
         val marathonId: String,
         @SerializedName("totalDistance")
-        val totalDistance: Double
+        val totalDistance: Double,
+        @SerializedName("countdownDay")
+        val countdownDay: Double
     )
 
     data class My(

@@ -1,7 +1,5 @@
 package mithril.hackathon.chasingcoin.ui.home.news
 
-import android.R
-import android.widget.ArrayAdapter
 import mithril.hackathon.chasingcoin.data.network.interactor.NewsInteractor
 import mithril.hackathon.chasingcoin.data.network.server.response.BaseResp
 import mithril.hackathon.chasingcoin.data.network.server.response.GamesResp
@@ -33,8 +31,11 @@ class NewsPresenter<V : NewsContract.View> : BasePresenter<V>(), NewsContract.Pr
         getView()?.hideProgress()
 
         println("==================="  + resp.data)
+
         println("==================="  + resp.data!!.count)
         println("==================="  + resp.data!!.news.get(0).title)
+
+        getView()?.setTitle(resp.data!!.news?.get(0)!!.title)
     }
 
     override fun onViewCreated() {

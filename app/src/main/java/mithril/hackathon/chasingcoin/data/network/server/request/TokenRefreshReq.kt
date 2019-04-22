@@ -2,7 +2,6 @@ package mithril.hackathon.chasingcoin.data.network.server.request
 
 import com.google.gson.annotations.SerializedName
 
-//TODO
 data class TokenRefreshReq(
     @SerializedName("client_id") val clientId: String,
     @SerializedName("client_secret") val clientSecret: String,

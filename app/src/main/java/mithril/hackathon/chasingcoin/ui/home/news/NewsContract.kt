@@ -7,8 +7,13 @@ import mithril.hackathon.chasingcoin.ui.base.BaseView
  */
 class NewsContract {
     interface View : BaseView {
-
+        fun setTitle(tilte: String)
+        fun setReward(reward: Long)
+        fun setDistance(distance: Long)
     }
 
-    interface Presenter {}
+    interface Presenter {
+
+        fun onViewCreated()
+    }
 }

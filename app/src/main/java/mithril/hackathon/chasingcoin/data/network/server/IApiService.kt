@@ -3,6 +3,7 @@ package mithril.hackathon.chasingcoin.data.network.server
 import kotlinx.coroutines.Deferred
 import mithril.hackathon.chasingcoin.data.network.server.request.ChaserIdReq
 import mithril.hackathon.chasingcoin.data.network.server.request.TokenRefreshReq
+import mithril.hackathon.chasingcoin.data.network.server.response.GamesResp
 import mithril.hackathon.chasingcoin.data.network.server.response.MiningResp
 import mithril.hackathon.chasingcoin.data.network.server.response.StatsResp
 import mithril.hackathon.chasingcoin.data.network.server.response.TokenExchangeResp
@@ -23,31 +24,31 @@ interface IApiService {
     /**
      * 取得 profile's mith
      */
-    @POST("/chaser/mith")
+    @POST("chaser/mith")
     fun chaserMith(@Body request: ChaserIdReq): Deferred<Response<ChaserIdReq>>
 
     /**
      * 取得 profile's strava
      */
-    @POST("/chaser/strava")
+    @POST("chaser/strava")
     fun chaserStrava(@Body request: ChaserIdReq): Deferred<Response<ChaserIdReq>>
 
     /**
      * 取得 mith's authorize
      */
-    @GET("/mith_oauth/authorize")
+    @GET("mith_oauth/authorize")
     fun mithAuth(@Query("code") code: String): Deferred<Response<TokenRefreshReq>>
 
     /**
      * 取得 mith's token
      */
-    @POST("/mith_oauth/token")
+    @POST("mith_oauth/token")
     fun mithToken(@Body request: TokenRefreshReq): Deferred<Response<TokenRefreshReq>>
 
     /**
      * 取得 mith's unbind
      */
-    @POST("/mith_oauth/unbind")
+    @POST("mith_oauth/unbind")
     fun mithAuthUnbind(@Body request: TokenRefreshReq): Deferred<Response<TokenRefreshReq>>
 
     /**
@@ -61,5 +62,8 @@ interface IApiService {
 
     @POST("chaser/marathon/stats")
     fun getStats(@Body request: ChaserIdReq): Deferred<Response<StatsResp>>
+
+    @GET("news")
+    fun getNews(): Deferred<Response<GamesResp>>
 
 }

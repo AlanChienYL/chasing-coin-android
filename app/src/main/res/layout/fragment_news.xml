@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="200dp"
             android:text="Title"
-            android:textSize="35sp"
+            android:textSize="21sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" android:id="@+id/fragment_news_title"/>

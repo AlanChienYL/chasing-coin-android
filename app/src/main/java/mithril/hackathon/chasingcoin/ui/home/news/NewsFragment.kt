@@ -7,12 +7,12 @@ import mithril.hackathon.chasingcoin.R
 import mithril.hackathon.chasingcoin.di.Injection
 import mithril.hackathon.chasingcoin.ui.base.BaseFragment
 import mithril.hackathon.chasingcoin.utils.Constants
+import java.util.*
 
 /**
  * Created by AlanChien on 09,April,2019.
  */
 class NewsFragment : BaseFragment(), NewsContract.View {
-
 
     val presenter: NewsPresenter<NewsContract.View> by lazy { NewsPresenter<NewsContract.View>() }
     override fun initializePresenter() = with(presenter) {
@@ -26,9 +26,6 @@ class NewsFragment : BaseFragment(), NewsContract.View {
         this@NewsFragment.lifecycle.addObserver(this)
     }
 
-//    override fun showError(errMsg: String) {
-//        news_view.longSnackbar(errMsg)
-//    }
 
     override fun getLayoutId(): Int = R.layout.fragment_news
 
@@ -38,16 +35,18 @@ class NewsFragment : BaseFragment(), NewsContract.View {
     }
 
     override fun setTitle(title: String?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        fragment_news_title.text = getString(R.string.fragment_news_title, title)
+
     }
 
     override fun setReward(reward: Long) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun setDistance(distance: Long) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+    override fun setNews(title: String? ,count: String?, km: String?, total: String?, getNum: String?, am: Date?, pm: Date?) {
+//        getString(R.string.fragment_news_title, title,count,km,total,getNum,am,pm)
+        fragment_news_title.text = " 恭喜上屆 "+title+" 參加者共 " + count + " 位, 以 "+km+" KM的成績贏得冠軍. 該回合的總金額合計有"+ total +"Mith 每人可領取"+ getNum+"Mith." +
+                " 賽程日期起"+ am +"AM ~ "+pm+" PM"
+    }
 }

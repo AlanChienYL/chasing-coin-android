@@ -12,6 +12,4 @@
     <string name="main_fragment_ranking_per">目前贏了 %1$s 的競逐者</string>
     <string name="main_fragment_remain_days">距離本回合結束時間剩 %1$s 天</string>
 
-    <string name="fragment_news_title"> 動態消息 %1$s </string>
-
 </resources>

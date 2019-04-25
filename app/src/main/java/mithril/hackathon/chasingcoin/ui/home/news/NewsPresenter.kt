@@ -39,10 +39,6 @@ class NewsPresenter<V : NewsContract.View> : BasePresenter<V>(), NewsContract.Pr
     private fun apiGamesSuccess(resp: GamesResp) {
         getView()?.hideProgress()
 
-//        println("==================="  + resp.data)
-//        println("==================="  + resp.data!!.count)
-//        println("==================="  + resp.data!!.news.get(0).title)
-
         getView()?.setNews(
             resp.data!!.news.get(0).title,
             String.format("%.2f", resp.data!!.count),

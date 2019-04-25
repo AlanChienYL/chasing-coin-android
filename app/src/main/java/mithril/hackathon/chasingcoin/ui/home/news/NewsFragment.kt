@@ -8,6 +8,9 @@ import mithril.hackathon.chasingcoin.di.Injection
 import mithril.hackathon.chasingcoin.ui.base.BaseFragment
 import mithril.hackathon.chasingcoin.utils.Constants
 import java.util.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import mithril.hackathon.chasingcoin.data.network.server.response.GamesResp
+
 
 /**
  * Created by AlanChien on 09,April,2019.
@@ -26,12 +29,14 @@ class NewsFragment : BaseFragment(), NewsContract.View {
         this@NewsFragment.lifecycle.addObserver(this)
     }
 
-
     override fun getLayoutId(): Int = R.layout.fragment_news
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.onViewCreated()
+
+//        presenter = NewsPresenter(GamesResp.News, this)
+//        setPresenter(presenter)
     }
 
     override fun setTitle(title: String?) {

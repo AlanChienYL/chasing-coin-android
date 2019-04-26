@@ -24,6 +24,7 @@ class MainFragment : BaseFragment(), MainContract.View {
                 activity!!, Constants.SharePreferences.SPFS_NAME
             )
         )
+        initialize(arguments, this@MainFragment.lifecycle)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -35,7 +36,7 @@ class MainFragment : BaseFragment(), MainContract.View {
     override fun getLayoutId(): Int = R.layout.fragment_main
 
     override fun showError(errMsg: String) {
-        main_view.longSnackbar(errMsg)
+        main_view?.longSnackbar(errMsg)
     }
 
     override fun setYearKm(km: String) {

@@ -18,11 +18,11 @@ class MemberFragment : BaseFragment(), MemberContract.View {
         setView(this@MemberFragment)
         lifecycle = this@MemberFragment.lifecycle
         dataInteractor = Injection.provideDataInteractor(
-                Injection.providePrefsHelper(
-                        activity!!, Constants.SharePreferences.SPFS_NAME
-                )
+            Injection.providePrefsHelper(
+                activity!!, Constants.SharePreferences.SPFS_NAME
+            )
         )
-        this@MemberFragment.lifecycle.addObserver(this)
+        initialize(arguments, this@MemberFragment.lifecycle)
     }
 
 

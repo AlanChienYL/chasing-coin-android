@@ -3,10 +3,7 @@ package mithril.hackathon.chasingcoin.data.network.server
 import kotlinx.coroutines.Deferred
 import mithril.hackathon.chasingcoin.data.network.server.request.ChaserIdReq
 import mithril.hackathon.chasingcoin.data.network.server.request.TokenRefreshReq
-import mithril.hackathon.chasingcoin.data.network.server.response.GamesResp
-import mithril.hackathon.chasingcoin.data.network.server.response.MiningResp
-import mithril.hackathon.chasingcoin.data.network.server.response.StatsResp
-import mithril.hackathon.chasingcoin.data.network.server.response.TokenExchangeResp
+import mithril.hackathon.chasingcoin.data.network.server.response.*
 import retrofit2.Response
 import retrofit2.http.Body
 import retrofit2.http.GET

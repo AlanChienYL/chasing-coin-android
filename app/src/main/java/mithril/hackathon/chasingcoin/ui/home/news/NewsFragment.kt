@@ -7,6 +7,7 @@ import mithril.hackathon.chasingcoin.R
 import mithril.hackathon.chasingcoin.di.Injection
 import mithril.hackathon.chasingcoin.ui.base.BaseFragment
 import mithril.hackathon.chasingcoin.utils.Constants
+import timber.log.Timber
 import java.util.*
 
 
@@ -24,7 +25,7 @@ class NewsFragment : BaseFragment(), NewsContract.View {
                 activity!!, Constants.SharePreferences.SPFS_NAME
             )
         )
-        this@NewsFragment.lifecycle.addObserver(this)
+        initialize(arguments, this@NewsFragment.lifecycle)
     }
 
     override fun getLayoutId(): Int = R.layout.fragment_news
@@ -32,9 +33,6 @@ class NewsFragment : BaseFragment(), NewsContract.View {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         presenter.onViewCreated()
-
-//        presenter = NewsPresenter(GamesResp.News, this)
-//        setPresenter(presenter)
     }
 
     override fun setTitle(title: String?) {
@@ -45,6 +43,13 @@ class NewsFragment : BaseFragment(), NewsContract.View {
     }
 
     override fun setDistance(distance: Long) {
+    }
+
+    override fun setController(controller: NewsController) {
+        Timber.d("in setController")
+        fragment_news_rlv.apply {
+            setControllerAndBuildModels(controller)
+        }
     }
 
     override fun setNews(

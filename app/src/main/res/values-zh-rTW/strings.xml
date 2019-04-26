@@ -13,5 +13,7 @@
     <string name="main_fragment_ranking_per">目前贏了 %1$s 的競逐者</string>
     <string name="main_fragment_remain_days">距離本回合結束時間剩 %1$s 天</string>
     <string name="fragment_news_title">News</string>
+    <string name="fragment_news_date">賽程期間 ： %1$s</string>
+    <string name="fragment_news_total_contestants">本次參賽者共 ： %1$s 人</string>
     <string name="news_descr">descr</string>
 </resources>

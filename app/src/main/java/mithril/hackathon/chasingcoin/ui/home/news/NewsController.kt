@@ -17,14 +17,14 @@ class NewsController(val news: MutableList<GamesResp.News>) : EpoxyController() 
                 news.title?.let {
                     title(it)
                 }
-
+                contestants(news.count.toString())
                 desc(
-                    " 恭喜上屆 ${news.title} 參加者共 ${news.count} 位, 以 ${String.format(
+                    "恭喜上屆 ${news.title} ,以 ${String.format(
                         "%.2f",
                         news.winnerDistance
-                    )} KM的成績贏得冠軍. 該回合的總金額合計有 ${news.totalDonation} Mith 每人可領取 ${news.reward} Mith." +
-                            " 賽程日期起 ${news.startAt.getDateMinOnly()} ~ ${news.closeAt.getDateMinOnly()}"
+                    )} KM 的成績贏得冠軍. 該回合的總金額合計有 ${news.totalDonation} Mith 每人可領取 ${news.reward} Mith."
                 )
+                date("${news.startAt.getDateMinOnly()} - ${news.closeAt.getDateMinOnly()}")
             }
         }
     }

@@ -11,7 +11,7 @@ class NewsContract {
         fun setTitle(title: String?)
         fun setReward(reward: Long)
         fun setDistance(distance: Long)
-        fun setNews(title: String?, count: String?, km:String?, total:String? , getNum:String?,am:Date?,pm:Date?)
+        fun setNews(title: String?, count: String?, km: String?, total: String?, getNum: String?, am: Date?, pm: Date?)
     }
 
     interface Presenter {

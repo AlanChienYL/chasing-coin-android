@@ -45,7 +45,7 @@ abstract class BaseInteractor(val di: DataInteractor) : LifecycleObserver, Corou
     }
 
     fun throwableHandler(t: Throwable, failureHandler: (BaseResp?) -> Unit): Job = launch {
-        Timber.d("in throwableHandler err : ${t.message}")
+        Timber.d("in throwableHandler err : ${t.localizedMessage}")
         val baseResp =
                 when (t) {
                     is UnknownHostException -> BaseResp(t.localizedMessage)

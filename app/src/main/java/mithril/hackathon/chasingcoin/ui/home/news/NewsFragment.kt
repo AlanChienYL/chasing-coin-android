@@ -8,8 +8,6 @@ import mithril.hackathon.chasingcoin.di.Injection
 import mithril.hackathon.chasingcoin.ui.base.BaseFragment
 import mithril.hackathon.chasingcoin.utils.Constants
 import java.util.*
-import androidx.recyclerview.widget.LinearLayoutManager
-import mithril.hackathon.chasingcoin.data.network.server.response.GamesResp
 
 
 /**
@@ -22,9 +20,9 @@ class NewsFragment : BaseFragment(), NewsContract.View {
         setView(this@NewsFragment)
         lifecycle = this@NewsFragment.lifecycle
         dataInteractor = Injection.provideDataInteractor(
-                Injection.providePrefsHelper(
-                        activity!!, Constants.SharePreferences.SPFS_NAME
-                )
+            Injection.providePrefsHelper(
+                activity!!, Constants.SharePreferences.SPFS_NAME
+            )
         )
         this@NewsFragment.lifecycle.addObserver(this)
     }
@@ -49,9 +47,18 @@ class NewsFragment : BaseFragment(), NewsContract.View {
     override fun setDistance(distance: Long) {
     }
 
-    override fun setNews(title: String? ,count: String?, km: String?, total: String?, getNum: String?, am: Date?, pm: Date?) {
+    override fun setNews(
+        title: String?,
+        count: String?,
+        km: String?,
+        total: String?,
+        getNum: String?,
+        am: Date?,
+        pm: Date?
+    ) {
 //        getString(R.string.fragment_news_title, title,count,km,total,getNum,am,pm)
-        fragment_news_title.text = " 恭喜上屆 "+title+" 參加者共 " + count + " 位, 以 "+km+" KM的成績贏得冠軍. 該回合的總金額合計有"+ total +"Mith 每人可領取"+ getNum+"Mith." +
-                " 賽程日期起"+ am +"AM ~ "+pm+" PM"
+        fragment_news_title.text =
+            " 恭喜上屆 $title 參加者共 $count 位, 以 $km KM的成績贏得冠軍. 該回合的總金額合計有 $total Mith 每人可領取" + getNum + "Mith." +
+                    " 賽程日期起" + am + "AM ~ " + pm + " PM"
     }
 }

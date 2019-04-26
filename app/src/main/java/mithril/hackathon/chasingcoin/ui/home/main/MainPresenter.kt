@@ -1,8 +1,6 @@
 package mithril.hackathon.chasingcoin.ui.home.main
 
-import mithril.hackathon.chasingcoin.data.network.interactor.AthleteStatsInteractor
-import mithril.hackathon.chasingcoin.data.network.interactor.ServerStatsInteractor
-import mithril.hackathon.chasingcoin.data.network.interactor.TokenRefreshInteractor
+import mithril.hackathon.chasingcoin.data.network.interactor.*
 import mithril.hackathon.chasingcoin.data.network.server.response.BaseResp
 import mithril.hackathon.chasingcoin.data.network.server.response.StatsResp
 import mithril.hackathon.chasingcoin.data.network.strava.response.AthleteStatsResp
@@ -31,6 +29,18 @@ class MainPresenter<V : MainContract.View> : BasePresenter<V>(), MainContract.Pr
     private val serverStatsInter by lazy {
         ServerStatsInteractor(
             dataInteractor!!, ::apiStatsSuccess, ::apiAthleteStatsFailed
+        )
+    }
+
+    private val checkJoinInter by lazy {
+        CheckJoinInteractor(
+            dataInteractor!!, {}, ::apiAthleteStatsFailed
+        )
+    }
+
+    private val donateInter by lazy {
+        DonateInteractor(
+            dataInteractor!!, {}, ::apiAthleteStatsFailed
         )
     }
 
@@ -83,5 +93,7 @@ class MainPresenter<V : MainContract.View> : BasePresenter<V>(), MainContract.Pr
         val uid = dataInteractor!!.prefsHelper.stravaUid
         athleteStatsInter.getStats(uid)
         serverStatsInter.getStats()
+        checkJoinInter.request()
+        donateInter.request()
     }
 }

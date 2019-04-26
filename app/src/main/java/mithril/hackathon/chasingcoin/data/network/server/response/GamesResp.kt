@@ -4,18 +4,18 @@ import com.google.gson.annotations.SerializedName
 
 data class GamesResp(
     @SerializedName("data") val data: Data?
-
 ) {
 
     data class Data(
         @SerializedName("count")
-        val count: Any,
+        val count: Int,
         @SerializedName("news")
-        val news: ArrayList<News>
+        val news: MutableList<News>
     )
+
     data class News(
         @SerializedName("winnerCount")
-        val count: Any,
+        val count: Int,
         @SerializedName("winnerDistance")
         val winnerDistance: Any,
         @SerializedName("totalDonation")
@@ -27,15 +27,15 @@ data class GamesResp(
         @SerializedName("publishAt")
         val publishAt: Long,
         @SerializedName("title")
-        val title:  String?,
+        val title: String?,
         @SerializedName("marathonId")
-        val marathonId:  Long?,
+        val marathonId: Long?,
         @SerializedName("closed")
-        val closed:  Boolean,
+        val closed: Boolean,
         @SerializedName("tag")
-        val tag:  String?,
+        val tag: String?,
         @SerializedName("marathonReward")
-        val reward:  Int
+        val reward: Int
     )
 
 }

@@ -65,5 +65,10 @@ interface IApiService {
 
     @GET("news")
     fun getNews(): Deferred<Response<GamesResp>>
+    @POST("chaser/marathon/canjoin")
+    fun checkJoinable(@Body request: ChaserIdReq): Deferred<Response<BaseResp>>
+
+    @GET("mith_donate/app")
+    fun donate(@Query("chaserId") chaserUid: String): Deferred<Response<BaseResp>>
 
 }

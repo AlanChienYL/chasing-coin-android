@@ -14,7 +14,7 @@ class NewsPresenter<V : NewsContract.View> : BasePresenter<V>(), NewsContract.Pr
 
 
     private val serverStatsInter by lazy {
-       NewsInteractor(
+        NewsInteractor(
             dataInteractor!!, ::apiGamesSuccess, ::apiGamesFailed
         )
     }
@@ -23,11 +23,11 @@ class NewsPresenter<V : NewsContract.View> : BasePresenter<V>(), NewsContract.Pr
     override fun create() {
 
     }
+
     private fun apiGamesFailed(resp: BaseResp?) {
         getView()?.hideProgress()
         Timber.e("in apiGamesFailed ${resp?.error}. code : ${resp?.code}")
         resp?.error?.let { err ->
-
             getView()?.setTitle("apiGamesFailed")
         }
         when (resp?.code == 401) {
@@ -40,13 +40,13 @@ class NewsPresenter<V : NewsContract.View> : BasePresenter<V>(), NewsContract.Pr
         getView()?.hideProgress()
 
         getView()?.setNews(
-            resp.data!!.news.get(0).title,
-            String.format("%.2f", resp.data!!.count),
-            String.format("%.2f", resp.data!!.news.get(0).winnerDistance),
-            resp.data!!.news?.get(0)!!.totalDonation.toString(),
-            resp.data!!.news?.get(0)!!.reward.toString(),
-            Date(resp.data!!.news?.get(0)!!.startAt),
-            Date(resp.data!!.news?.get(0)!!.closeAt)
+            resp.data!!.news[0].title,
+            String.format("%.2f", resp.data.count),
+            String.format("%.2f", resp.data.news[0].winnerDistance),
+            resp.data.news.get(0).totalDonation.toString(),
+            resp.data.news[0].reward.toString(),
+            Date(resp.data.news[0].startAt),
+            Date(resp.data.news[0].closeAt)
         )
     }
 

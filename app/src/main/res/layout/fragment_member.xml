@@ -12,18 +12,24 @@
             android:textSize="35sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
+
             app:layout_constraintTop_toTopOf="parent" android:id="@+id/textView5"/>
 
 
     <TextView
-            android:text="@string/member_level"
+            android:text="@string/member_level_source"
+            android:textSize="24sp"
+            android:layout_marginTop="50dp"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fragment_member_level"
             android:layout_marginLeft="12dp"
             app:layout_constraintTop_toBottomOf="@+id/textView5"/>
     <TextView
-            android:text="@string/member_total"
+            android:text="@string/member_total_source"
+            android:textSize="24sp"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fragment_member_total"
@@ -31,14 +37,18 @@
             app:layout_constraintTop_toBottomOf="@+id/fragment_member_level"
             />
     <TextView
-            android:text="@string/member_balance"
+            android:text="@string/member_balance_source"
+            android:textSize="24sp"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fragment_member_balance"
             android:layout_marginLeft="12dp"
             app:layout_constraintTop_toBottomOf="@+id/fragment_member_total"/>
     <TextView
-            android:text="@string/member_amount"
+            android:text="@string/member_amount_source"
+            android:textSize="24sp"
+            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fragment_member_amount"

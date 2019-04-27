@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">跑酷IN!</string>
-    <string name="activity_main_login">登入</string>
-    <string name="activity_home_tab_main">Main</string>
-    <string name="activity_home_tab_news">News</string>
-    <string name="activity_home_tab_member">Member</string>
+    <string name="activity_main_login">以Strava登入</string>
+    <string name="activity_home_tab_main">跑酷紀錄</string>
+    <string name="activity_home_tab_news">社群活動</string>
+    <string name="activity_home_tab_member">秘銀帳戶</string>
 
     <string name="main_fragment_strava_activity">Strava 活動</string>
     <string name="main_fragment_strava_recent_year">近一年跑了 %1$s 公里</string>

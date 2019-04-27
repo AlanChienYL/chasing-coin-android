@@ -14,6 +14,8 @@ data class NewsResp(
         val news: ArrayList<News>
     )
     data class News(
+        @SerializedName("winners")
+        val winners: Any,
         @SerializedName("winnerCount")
         val count: Any,
         @SerializedName("winnerDistance")

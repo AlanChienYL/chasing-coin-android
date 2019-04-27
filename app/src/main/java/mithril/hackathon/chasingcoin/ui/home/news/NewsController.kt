@@ -17,12 +17,12 @@ class NewsController(val news: MutableList<NewsResp.News>) : EpoxyController() {
                 news.title?.let {
                     title(it)
                 }
-                contestants(news.count.toString())
+                publishat(news.publishAt.getDateMinOnly().toString())
                 desc(
-                    "上屆 ${news.title} ,以 ${String.format(
+                    "恭喜上屆${news.title}(每月最會跑)的贏家 ${news.winners} 共 ${String.format("%.0f",news.count)} 人,以 ${String.format(
                         "%.2f",
                         news.winnerDistance
-                    )} KM 贏得冠軍. 總金額合計有 ${news.totalDonation} Mith.每人可領 ${news.reward} Mith."
+                    )} KM的成績贏得冠軍。該回合的總金額合計有 ${news.totalDonation} Mith，每人可領 ${news.reward} Mith."
                 )
                 date("${news.startAt.getDateMinOnly()} - ${news.closeAt.getDateMinOnly()}")
             }

@@ -85,6 +85,12 @@ class MainPresenter<V : MainContract.View> : BasePresenter<V>(), MainContract.Pr
         getView()?.setTotalKMNow(resp.stats.totalDistance.format())
         getView()?.setRankingPer(resp.my.rank)
         getView()?.setRemainDays(String.format("%.0f", resp.stats.countdownDay))
+
+        getView()?.setRoundDistance(resp.stats.totalDistance)
+        getView()?.setRoundJoinCheck(resp.my.totalDistance)
+        getView()?.setRoundLastDay(resp.stats.countdownDay)
+        getView()?.setRoundRank(resp.my.rank,resp.stats.countOfRunners.toString())
+        getView()?.setRoundPrize(resp.stats.amount.toString())
     }
 
     override fun onViewCreated() {

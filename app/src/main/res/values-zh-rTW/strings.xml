@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">跑酷IN!</string>
-    <string name="activity_main_login">登入</string>
-    <string name="activity_home_tab_main">Main</string>
-    <string name="activity_home_tab_news">News</string>
-    <string name="activity_home_tab_member">Member</string>
+    <string name="activity_main_login">以Strava登入</string>
+    <string name="activity_home_tab_main">跑酷紀錄</string>
+    <string name="activity_home_tab_news">社群活動</string>
+    <string name="activity_home_tab_member">秘銀帳戶</string>
     <string name="main_fragment_strava_activity">Strava 活動</string>
     <string name="main_fragment_strava_recent_year">近一年跑了 %1$s 公里</string>
     <string name="main_fragment_strava_recent_week">近四周跑了 %1$s 公里</string>
@@ -12,7 +12,7 @@
     <string name="main_fragment_mining_current">目前合計跑步距離為 %1$s KM</string>
     <string name="main_fragment_ranking_per">目前贏了 %1$s 的競逐者</string>
     <string name="main_fragment_remain_days">距離本回合結束時間剩 %1$s 天</string>
-    <string name="fragment_news_title">News</string>
+    <string name="fragment_news_title">社群活動</string>
     <string name="fragment_news_date">賽程期間 ： %1$s</string>
     <string name="fragment_news_total_contestants">本次參賽者共 ： %1$s 人</string>
     <string name="news_descr">descr</string>

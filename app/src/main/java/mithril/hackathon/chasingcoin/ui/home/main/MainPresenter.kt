@@ -2,6 +2,7 @@ package mithril.hackathon.chasingcoin.ui.home.main
 
 import mithril.hackathon.chasingcoin.data.network.interactor.*
 import mithril.hackathon.chasingcoin.data.network.server.response.BaseResp
+import mithril.hackathon.chasingcoin.data.network.server.response.CanJoinResp
 import mithril.hackathon.chasingcoin.data.network.server.response.StatsResp
 import mithril.hackathon.chasingcoin.data.network.strava.response.AthleteStatsResp
 import mithril.hackathon.chasingcoin.data.network.strava.response.TokenExchangeResp
@@ -28,13 +29,13 @@ class MainPresenter<V : MainContract.View> : BasePresenter<V>(), MainContract.Pr
 
     private val serverStatsInter by lazy {
         ServerStatsInteractor(
-            dataInteractor!!, ::apiStatsSuccess, ::apiAthleteStatsFailed
+            dataInteractor!!, ::apiStatsSuccess, ::apiStatsFailed
         )
     }
 
     private val checkJoinInter by lazy {
         CheckJoinInteractor(
-            dataInteractor!!, {}, ::apiAthleteStatsFailed
+            dataInteractor!!, ::apiCanJoinSuccess, ::apiCanJoinFailed
         )
     }
 
@@ -80,6 +81,18 @@ class MainPresenter<V : MainContract.View> : BasePresenter<V>(), MainContract.Pr
         Timber.e("in apiRefreshFailure ${resp?.error}")
     }
 
+    private fun apiStatsFailed(resp: BaseResp?) {
+        getView()?.hideProgress()
+        Timber.e("in apiStatsFailed ${resp?.error}. code : ${resp?.code}")
+        resp?.error?.let { err ->
+            getView()?.showError(err)
+        }
+        when (resp?.code == 401) {
+            true -> refreshInter.request()
+            else -> getView()?.hideProgress()
+        }
+    }
+
     private fun apiStatsSuccess(resp: StatsResp) {
         getView()?.hideProgress()
         getView()?.setTotalKMNow(resp.stats.totalDistance.format())
@@ -93,12 +106,29 @@ class MainPresenter<V : MainContract.View> : BasePresenter<V>(), MainContract.Pr
         getView()?.setRoundPrize(resp.stats.amount.toString())
     }
 
+    private fun apiCanJoinSuccess(resp: CanJoinResp) {
+        getView()?.hideProgress()
+
+        if (resp.answer!! == false){
+            //TODO show join donate button , button must add listener,
+            //      if click button, redirect url to donate address
+            println("---------------- show button ----------------")
+        }
+    }
+    private fun apiCanJoinFailed(resp: BaseResp?) {
+        getView()?.hideProgress()
+        Timber.e("in apiCanJoin ${resp?.error}. code : ${resp?.code}")
+        resp?.error?.let { err ->
+            getView()?.showError(err)
+        }
+    }
+
     override fun onViewCreated() {
         getView()?.showProgress()
         val uid = dataInteractor!!.prefsHelper.stravaUid
         athleteStatsInter.getStats(uid)
         serverStatsInter.getStats()
         checkJoinInter.request()
-        donateInter.request()
+//        donateInter.request()
     }
 }

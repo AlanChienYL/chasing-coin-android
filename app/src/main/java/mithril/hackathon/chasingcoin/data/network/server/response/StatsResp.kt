@@ -28,11 +28,11 @@ data class StatsResp(
 
     data class My(
         @SerializedName("amount")
-        val amount: Int,
+        val amount: Long,
         @SerializedName("rank")
         val rank: String,
         @SerializedName("totalDistance")
-        val totalDistance: Int
+        val totalDistance: Double
     )
 
 

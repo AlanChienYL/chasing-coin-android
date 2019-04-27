@@ -19,7 +19,7 @@ class MainContract {
 
         fun setRemainDays(remainDays: String)
 
-        fun setRoundJoinCheck(check :Int)
+        fun setRoundJoinCheck(check :Double)
 
         fun setRoundLastDay(date :Double)
 

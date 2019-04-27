@@ -68,7 +68,6 @@ class MainPresenter<V : MainContract.View> : BasePresenter<V>(), MainContract.Pr
         }
     }
 
-
     private fun apiRefreshSuccess(resp: TokenExchangeResp) {
         dataInteractor?.prefsHelper?.refreshToken = resp.refreshToken
         dataInteractor?.prefsHelper?.stravaToken = resp.accessToken

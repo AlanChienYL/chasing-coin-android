@@ -32,7 +32,6 @@ class MainFragment : BaseFragment(), MainContract.View {
         presenter.onViewCreated()
     }
 
-
     override fun getLayoutId(): Int = R.layout.fragment_main
 
     override fun showError(errMsg: String) {

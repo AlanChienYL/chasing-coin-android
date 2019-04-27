@@ -2,20 +2,20 @@ package mithril.hackathon.chasingcoin.data.network.server.response
 
 import com.google.gson.annotations.SerializedName
 
-data class GamesResp(
+data class NewsResp(
     @SerializedName("data") val data: Data?
+
 ) {
 
     data class Data(
         @SerializedName("count")
-        val count: Int,
+        val count: Any,
         @SerializedName("news")
-        val news: MutableList<News>
+        val news: ArrayList<News>
     )
-
     data class News(
         @SerializedName("winnerCount")
-        val count: Int,
+        val count: Any,
         @SerializedName("winnerDistance")
         val winnerDistance: Any,
         @SerializedName("totalDonation")
@@ -27,15 +27,15 @@ data class GamesResp(
         @SerializedName("publishAt")
         val publishAt: Long,
         @SerializedName("title")
-        val title: String?,
+        val title:  String?,
         @SerializedName("marathonId")
-        val marathonId: Long?,
+        val marathonId:  Long?,
         @SerializedName("closed")
-        val closed: Boolean,
+        val closed:  Boolean,
         @SerializedName("tag")
-        val tag: String?,
+        val tag:  String?,
         @SerializedName("marathonReward")
-        val reward: Int
+        val reward:  Int
     )
 
 }

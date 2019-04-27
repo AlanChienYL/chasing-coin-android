@@ -39,6 +39,7 @@ class PreferencesHelper(
         private const val REFRESH_TOKEN = "mithril.hackathon.chasingcoin.prefs.refreshToken"
         private const val STARVA_UID = "mithril.hackathon.chasingcoin.prefs.uid"
         private const val CHASER_UID = "mithril.hackathon.chasingcoin.prefs.chaserUid"
+        private const val MITH_ACCESS_TOKEN = "mithril.hackathon.chasingcoin.prefs.mithAccessToken"
     }
 
     var chasingToken: String?
@@ -60,5 +61,9 @@ class PreferencesHelper(
     var chaserUid: String?
         get() = prefs.getString(CHASER_UID, null)
         set(value) = prefs.edit().putString(CHASER_UID, value).apply()
+
+    var mithToken: String?
+        get() = prefs.getString(MITH_ACCESS_TOKEN, null)
+        set(value) = prefs.edit().putString(MITH_ACCESS_TOKEN, value).apply()
 
 }

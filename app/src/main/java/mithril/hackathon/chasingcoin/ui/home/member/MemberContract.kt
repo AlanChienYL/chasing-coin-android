@@ -7,8 +7,18 @@ import mithril.hackathon.chasingcoin.ui.base.BaseView
  */
 class MemberContract {
     interface View : BaseView {
+        fun setUserMithLevel(lv: String)
+
+        fun setUserMithTotal(total: String)
+
+        fun setUserMithStakedAmount(sAmount: String)
+
+        fun setUserMithBalance(balance: String?)
 
     }
 
-    interface Presenter {}
+    interface Presenter {
+
+        fun onViewCreated()
+    }
 }

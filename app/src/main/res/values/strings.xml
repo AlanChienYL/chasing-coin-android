@@ -15,4 +15,8 @@
     <string name="fragment_news_date">賽程期間 ： %1$s</string>
     <string name="fragment_news_total_contestants">本次參賽者共 ： %1$s 人</string>
     <string name="news_descr">descr</string>
+    <string name="member_level">秘銀帳號等級： %1$s </string>
+    <string name="member_total">秘銀總額： %1$s </string>
+    <string name="member_balance">秘銀餘額： %1$s </string>
+    <string name="member_amount">已使用秘銀： %1$s </string>
 </resources>

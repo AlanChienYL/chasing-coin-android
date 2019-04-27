@@ -3,7 +3,7 @@ package mithril.hackathon.chasingcoin.ui.home.news
 import kotlinx.coroutines.Job
 import mithril.hackathon.chasingcoin.data.network.interactor.NewsInteractor
 import mithril.hackathon.chasingcoin.data.network.server.response.BaseResp
-import mithril.hackathon.chasingcoin.data.network.server.response.GamesResp
+import mithril.hackathon.chasingcoin.data.network.server.response.NewsResp
 import mithril.hackathon.chasingcoin.ui.base.BasePresenter
 import timber.log.Timber
 
@@ -13,10 +13,10 @@ import timber.log.Timber
 class NewsPresenter<V : NewsContract.View> : BasePresenter<V>(), NewsContract.Presenter {
 
     private lateinit var job: Job
-    private lateinit var resp: GamesResp
+    private lateinit var resp: NewsResp
     private val serverStatsInter by lazy {
         NewsInteractor(
-            dataInteractor!!, ::apiGamesSuccess, ::apiGamesFailed
+            dataInteractor!!, ::apiNewsSuccess, ::apiNewsFailed
         )
     }
 
@@ -25,19 +25,19 @@ class NewsPresenter<V : NewsContract.View> : BasePresenter<V>(), NewsContract.Pr
         job = serverStatsInter.getNews()
     }
 
-    private fun apiGamesFailed(resp: BaseResp?) {
+    private fun apiNewsFailed(resp: BaseResp?) {
         getView()?.hideProgress()
-        Timber.e("in apiGamesFailed ${resp?.error}. code : ${resp?.code}")
+        Timber.e("in apiNewsFailed ${resp?.error}. code : ${resp?.code}")
         resp?.error?.let { err ->
-            getView()?.setTitle("apiGamesFailed")
+            getView()?.setTitle("apiNewsFailed")
         }
         when (resp?.code == 401) {
-            true -> print("=== apiGamesFailed === ")
+            true -> print("=== apiNewsFailed === ")
             else -> getView()?.hideProgress()
         }
     }
 
-    private fun apiGamesSuccess(resp: GamesResp) {
+    private fun apiNewsSuccess(resp: NewsResp) {
         this.resp = resp
         Timber.e("${getView()}")
         getView()?.hideProgress()

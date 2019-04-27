@@ -31,7 +31,7 @@ class MemberPresenter<V : MemberContract.View> : BasePresenter<V>(), MemberContr
     private fun apiMithSuccess(resp: MithResp) {
         getView()?.hideProgress()
 
-        println("---------------" + resp.mith!!.access_token + "---------------")
+//        println("---------------" + resp.mith!!.access_token + "---------------")
 
         userInfoInter.getUserInfo(resp.mith!!.access_token)
     }

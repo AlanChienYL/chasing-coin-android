@@ -65,8 +65,8 @@ class MainFragment : BaseFragment(), MainContract.View {
 
     //-----------------
 
-    override fun setRoundJoinCheck(check: Int) {
-        if (check == 0) {
+    override fun setRoundJoinCheck(check: Double) {
+        if (check == 0.0) {
             fragment_main_mining_active_check.text = getString(R.string.main_fragment_mining_active_check_0)
         }else{
             fragment_main_mining_active_check.text = getString(R.string.main_fragment_mining_active_check_1)

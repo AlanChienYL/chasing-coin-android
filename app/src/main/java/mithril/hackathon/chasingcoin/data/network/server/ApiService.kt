@@ -65,7 +65,7 @@ interface ApiService {
     fun getNews(): Deferred<Response<NewsResp>>
 
     @POST("chaser/marathon/canjoin")
-    fun checkJoinable(@Body request: ChaserIdReq): Deferred<Response<BaseResp>>
+    fun checkJoinable(@Body request: ChaserIdReq): Deferred<Response<CanJoinResp>>
 
     @POST("mith_oauth/user-info")
     fun mithUserInfo(@Body request: MithTokenReq): Deferred<Response<UserInfoResp>>

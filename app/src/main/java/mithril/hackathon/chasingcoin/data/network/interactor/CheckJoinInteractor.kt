@@ -5,14 +5,16 @@ import kotlinx.coroutines.launch
 import mithril.hackathon.chasingcoin.data.DataInteractor
 import mithril.hackathon.chasingcoin.data.network.server.request.ChaserIdReq
 import mithril.hackathon.chasingcoin.data.network.server.response.BaseResp
+import mithril.hackathon.chasingcoin.data.network.server.response.CanJoinResp
 import retrofit2.Response
+import kotlin.reflect.KFunction1
 
 /**
  * Created by AlanChien on 19,April,2019.
  */
 class CheckJoinInteractor(
     di: DataInteractor,
-    val successHandler: (BaseResp) -> Unit,
+    val successHandler: KFunction1<@ParameterName(name = "resp") CanJoinResp, Unit>,
     val failureHandler: (BaseResp?) -> Unit
 ) : BaseInteractor(di) {
 
@@ -28,7 +30,7 @@ class CheckJoinInteractor(
         }
     }
 
-    private fun parser(resp: Response<BaseResp>) {
+    private fun parser(resp: Response<CanJoinResp>) {
         when {
             resp.isSuccessful -> {
                 resp.body()?.let { successHandler(it) }

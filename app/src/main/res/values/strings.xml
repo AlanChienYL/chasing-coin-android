@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ChasingCoin</string>
+    <string name="app_name">Chasing Coin</string>
     <string name="activity_main_login">Login with Strava</string>
     <string name="activity_home_tab_main">Main</string>
     <string name="activity_home_tab_news">News</string>

@@ -1,5 +1,6 @@
 package mithril.hackathon.chasingcoin.ui.home.news.models
 
+import android.text.Html
 import android.view.View
 import android.widget.TextView
 import com.airbnb.epoxy.EpoxyAttribute
@@ -30,8 +31,8 @@ abstract class NewsModel : EpoxyModelWithHolder<NewsModel.NewsHolder>() {
     override fun bind(holder: NewsHolder) {
         super.bind(holder)
         holder.apply {
-            txtTitle.text = title
-            txtDesc.text = desc
+            //txtTitle.text = title
+            txtDesc.text = Html.fromHtml(desc)
             txtDate.text = txtDate.context.getString(R.string.fragment_news_date, date)
             txtPublishAt.text = publishat
         }

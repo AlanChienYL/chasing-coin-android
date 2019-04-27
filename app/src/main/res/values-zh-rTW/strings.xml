@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">跑酷IN!</string>
+    <string name="app_name">跑酷 IN!</string>
     <string name="activity_main_login">以Strava登入</string>
     <string name="activity_home_tab_main">跑酷紀錄</string>
     <string name="activity_home_tab_news">社群活動</string>
@@ -21,7 +21,7 @@
     <string name="main_fragment_mining_active_rank">目前贏了%1$s的參與者(%2$s人)</string>
     <string name="main_fragment_mining_active_prize">目前的獨享獎勵為 %1$s Mith</string>
 
-    <string name="fragment_news_title">News</string>
+    <string name="fragment_news_title">Chaser跑起來!Mith挖進來!Chasing叫出來!</string>
     <string name="fragment_news_date">賽程期間 ： %1$s</string>
     <string name="fragment_news_total_contestants">本次參賽者共 ： %1$s 人</string>
     <string name="news_descr">descr</string>

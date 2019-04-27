@@ -21,6 +21,7 @@ class DonateInteractor(
             val resp = di.serverApiService.donate(di.prefsHelper.chaserUid!!).await()
             parser(resp)
         } catch (t: Throwable) {
+            println("######################################")
             throwableHandler(t, failureHandler)
         }
     }

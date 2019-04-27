@@ -5,6 +5,7 @@
     <string name="activity_home_tab_main">Main</string>
     <string name="activity_home_tab_news">News</string>
     <string name="activity_home_tab_member">Member</string>
+
     <string name="main_fragment_strava_activity">Strava 活動</string>
     <string name="main_fragment_strava_recent_year">近一年跑了 %1$s 公里</string>
     <string name="main_fragment_strava_recent_week">近四周跑了 %1$s 公里</string>
@@ -12,10 +13,19 @@
     <string name="main_fragment_mining_current">目前合計跑步距離為 %1$s KM</string>
     <string name="main_fragment_ranking_per">目前贏了 %1$s 的競逐者</string>
     <string name="main_fragment_remain_days">距離本回合結束時間剩 %1$s 天</string>
+    <string name="main_fragment_mining_active">跑酷大逃挖</string>
+    <string name="main_fragment_mining_active_check_0">您尚未參加本期競賽</string>
+    <string name="main_fragment_mining_active_check_1">每月最會跑(您已參加本期競賽)</string>
+    <string name="main_fragment_mining_active_lastDay">目前回合剩 %1$s 天結束</string>
+    <string name="main_fragment_mining_active_lastDistance">目前回合跑了%1$sKM</string>
+    <string name="main_fragment_mining_active_rank">目前贏了%1$s的參與者(%2$s人)</string>
+    <string name="main_fragment_mining_active_prize">目前的獨享獎勵為 %1$s Mith</string>
+
     <string name="fragment_news_title">News</string>
     <string name="fragment_news_date">賽程期間 ： %1$s</string>
     <string name="fragment_news_total_contestants">本次參賽者共 ： %1$s 人</string>
     <string name="news_descr">descr</string>
+
     <string name="member_level">秘銀帳號等級： %1$s </string>
     <string name="member_total">秘銀總額： %1$s </string>
     <string name="member_balance">秘銀餘額： %1$s </string>
@@ -24,4 +34,5 @@
     <string name="member_total_source">秘銀總額：</string>
     <string name="member_balance_source">秘銀餘額：</string>
     <string name="member_amount_source">已使用秘銀：</string>
+
 </resources>

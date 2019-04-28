@@ -5,17 +5,15 @@
                                                    android:layout_height="match_parent"
 android:background="@drawable/layout_news">
 
-    <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:text="Profile"
-            android:textSize="35sp"
+    <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="10dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-
-            app:layout_constraintTop_toTopOf="parent" android:id="@+id/textView5"/>
-
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/textView5"
+            android:src="@drawable/mithlogo"/>
 
     <TextView
             android:text="@string/member_level_source"

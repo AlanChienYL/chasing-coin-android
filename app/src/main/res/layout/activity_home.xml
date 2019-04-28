@@ -10,7 +10,13 @@
                     android:background="#F8EFE2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" app:layout_constraintTop_toTopOf="parent">
-
+        <ImageView android:id="@+id/shared_bar_chaser_logo"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_alignParentLeft="true"
+                   android:layout_marginTop="5dp"
+                   android:layout_marginBottom="5dp"
+                   android:src="@mipmap/ic_launcher"/>
         <TextView android:id="@+id/shared_bar_app_name"
                   android:layout_width="wrap_content"
                   android:layout_height="wrap_content"

@@ -5,7 +5,6 @@
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent">
 
-
     <TextView
             android:id="@+id/fragment_news_title"
             android:layout_width="wrap_content"
@@ -14,7 +13,7 @@
             android:layout_marginStart="0dp"
             android:layout_marginEnd="0dp"
             android:text="@string/fragment_news_title"
-            android:textSize="15dp"
+            android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
